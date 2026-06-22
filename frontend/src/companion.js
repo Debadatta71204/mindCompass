@@ -283,7 +283,7 @@ export function renderCompanionModule(containerId, activeDisorder) {
     const loadingBubble = showLoadingBubble();
 
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/companion', {
+      const response = await fetch('https://mindcompass-l3fb.onrender.com/api/companion', {
         method:  'POST',
         headers: { 'Content-Type': 'application/json' },
         body:    JSON.stringify({
