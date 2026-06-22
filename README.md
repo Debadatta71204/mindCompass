@@ -1,11 +1,6 @@
-<<<<<<< HEAD
-
 # MindCompass — Academic Cognitive Wellness Dashboard
-=======
-# MindCompass
->>>>>>> 64591eb (Added react code and voice integration)
 
-Academic Cognitive Wellness Dashboard — DSM-5 aligned informational prototype.
+DSM-5 aligned academic informational prototype for cognitive wellness support.
 
 ---
 
