@@ -11,7 +11,6 @@
 </head>
 <body>
 
-  <!-- ── ACADEMIC DISCLAIMER BANNER ─────────────────────────────────────── -->
   <div class="global-disclaimer-banner">
     <span class="disclaimer-icon">⚠</span>
     <strong>Academic Informational Prototype Only.</strong>
@@ -19,9 +18,6 @@
     Always consult a qualified healthcare professional for medical concerns.
   </div>
 
-  <!-- ════════════════════════════════════════════════════════════════════ -->
-  <!-- LANDING SCREEN                                                       -->
-  <!-- ════════════════════════════════════════════════════════════════════ -->
   <div id="landing-screen">
     <div class="landing-inner">
       <div class="landing-logo">
@@ -33,7 +29,6 @@
 
       <div class="track-cards-grid">
 
-        <!-- Card 1: Dementia / Major NCD -->
         <button class="track-card" onclick="selectTrack('dementia')" aria-label="Select Dementia / Major NCD track">
           <div class="track-card-icon">🧠</div>
           <div class="track-card-badge">DSM-5 — Major NCD</div>
@@ -50,7 +45,6 @@
           <div class="track-card-cta">Enter Track →</div>
         </button>
 
-        <!-- Card 2: ADHD -->
         <button class="track-card" onclick="selectTrack('adhd')" aria-label="Select ADHD track">
           <div class="track-card-icon">⚡</div>
           <div class="track-card-badge">DSM-5 — Neurodevelopmental</div>
@@ -67,7 +61,6 @@
           <div class="track-card-cta">Enter Track →</div>
         </button>
 
-        <!-- Card 3: MCI -->
         <button class="track-card" onclick="selectTrack('mci')" aria-label="Select Mild Cognitive Impairment track">
           <div class="track-card-icon">🌱</div>
           <div class="track-card-badge">DSM-5 — Mild NCD</div>
@@ -84,21 +77,11 @@
           <div class="track-card-cta">Enter Track →</div>
         </button>
 
-      </div><!-- /track-cards-grid -->
-
-      <p class="landing-footer-note">
+      </div><p class="landing-footer-note">
         Built as a B.Tech Computer Science academic project &nbsp;|&nbsp; DSM-5 framework reference &nbsp;|&nbsp; Non-clinical informational use only
       </p>
-    </div><!-- /landing-inner -->
-  </div><!-- /#landing-screen -->
+    </div></div><div id="app-shell" class="hidden">
 
-
-  <!-- ════════════════════════════════════════════════════════════════════ -->
-  <!-- MAIN APP (hidden until track is selected)                           -->
-  <!-- ════════════════════════════════════════════════════════════════════ -->
-  <div id="app-shell" class="hidden">
-
-    <!-- TOP HEADER -->
     <header class="app-header">
       <div class="app-header-left">
         <div class="logo-icon small">⬡</div>
@@ -110,10 +93,8 @@
       </div>
     </header>
 
-    <!-- LAYOUT WRAPPER -->
     <div class="app-layout">
 
-      <!-- SIDEBAR NAV -->
       <nav class="sidebar" aria-label="Module navigation">
         <div class="sidebar-section-label">NAVIGATION</div>
         <div class="language-selector-wrapper">
@@ -125,7 +106,7 @@
             <option value="ta">தமிழ் (Tamil)</option>
             <option value="te">తెలుగు (Telugu)</option>
             <option value="kn">ಕನ್ನಡ (Kannada)</option>
-            <option value="or">ଓଡ଼ିଆ (Odia)</option>
+            <option value="or">ଓଡ଼িଆ (Odia)</option>
           </select>
         </div>
 
@@ -144,7 +125,7 @@
         </button>
 
         <button class="sidebar-nav-item" id="nav-companion" onclick="navigateTo('companion')">
-          <span class="nav-icon">🎵</span>
+          <span class="nav-icon">💬</span>
           <span>Module 2</span>
           <span class="nav-sub">Creative Wellness Hub</span>
         </button>
@@ -155,22 +136,26 @@
           <span class="nav-sub">Caregiver Support</span>
         </button>
 
+        <button class="sidebar-nav-item" id="nav-soundlull" onclick="navigateTo('soundlull')">
+          <span class="nav-icon">🎵</span>
+          <span>Module 4</span>
+          <span class="nav-sub">Soundlull Therapy</span>
+        </button>
+
         <div class="sidebar-footer">
           <p>DSM-5 Framework</p>
           <p>Non-Clinical Use Only</p>
         </div>
       </nav>
 
-      <!-- MAIN CONTENT AREA -->
       <main class="main-content" id="main-content" aria-live="polite">
 
-        <!-- HOME / WELCOME VIEW (default) -->
         <div id="view-home" class="content-view">
           <div class="home-welcome-card">
             <div class="home-welcome-icon" id="home-welcome-icon">🧠</div>
             <h2 class="home-welcome-heading" id="home-welcome-heading">Welcome to MindCompass</h2>
             <p class="home-welcome-desc" id="home-welcome-desc">
-              Your track has been loaded. Use the sidebar to navigate the three informational modules.
+              Your track has been loaded. Use the sidebar to navigate the four informational modules.
             </p>
             <div class="home-module-grid">
               <div class="home-module-tile" onclick="navigateTo('screening')">
@@ -188,39 +173,37 @@
                 <div class="home-module-name">Caregiver Support</div>
                 <div class="home-module-blurb">DSM-5 psychoeducation &amp; referral pathways</div>
               </div>
+              <div class="home-module-tile" onclick="navigateTo('soundlull')">
+                <div class="home-module-number">04</div>
+                <div class="home-module-name">Soundlull Therapy</div>
+                <div class="home-module-blurb">Custom wizard-driven ambient soundscape player</div>
+              </div>
             </div>
             <button class="btn-secondary" onclick="goBackToLanding()">← Change Track</button>
           </div>
         </div>
 
-        <!-- MODULE 1: SCREENING (injected by screening.js) -->
         <div id="view-screening" class="content-view hidden">
           <div id="screening-container"></div>
         </div>
 
-        <!-- MODULE 2: CREATIVE WELLNESS HUB (injected by companion.js) -->
         <div id="view-companion" class="content-view hidden">
           <div id="companion-container"></div>
         </div>
 
-        <!-- MODULE 3: CAREGIVER SUPPORT (injected by education.js) -->
         <div id="view-education" class="content-view hidden">
           <div id="education-container"></div>
         </div>
 
-      </main><!-- /main-content -->
+        <div id="view-soundlull" class="content-view hidden">
+          <div id="soundlull-container"></div>
+        </div>
 
-    </div><!-- /app-layout -->
-  </div><!-- /#app-shell -->
-
-
-  <!-- ════════════════════════════════════════════════════════════════════ -->
-  <!-- JAVASCRIPT — SPA ROUTER & MODULE LOADER                             -->
-  <!-- ════════════════════════════════════════════════════════════════════ -->
-  <script type="module">
+      </main></div></div><script type="module">
     import { renderScreeningModule } from './src/screening.js';
     import { renderCompanionModule } from './src/companion.js';
     import { renderEducationModule } from './src/education.js';
+    import { renderSoundlullModule } from './src/soundlull.js';
 
     // Track state variables globally
     window.currentLanguage = 'en';
@@ -228,7 +211,7 @@
     window.currentDisorder = null;
 
     // Track which modules have already been rendered (avoid double-render lag)
-    const rendered = { screening: false, companion: false, education: false };
+    const rendered = { screening: false, companion: false, education: false, soundlull: false };
 
     // Expose core functions to global scope for onclick handlers in HTML
     window.selectTrack = function(disorder) {
@@ -260,25 +243,24 @@
       window.activeView = viewName; // Save current view location globally
       showView(viewName);
 
-      // Lazy-render modules on first visit
+      // Lazy-render modules on first visit using standard JavaScript conditional checks
       if (viewName === 'screening' && !rendered.screening) {
         renderScreeningModule('screening-container', window.currentDisorder);
         rendered.screening = true;
-      }
-      if (viewName === 'companion' && !rendered.companion) {
+      } else if (viewName === 'companion' && !rendered.companion) {
         renderCompanionModule('companion-container', window.currentDisorder);
         rendered.companion = true;
-      }
-      
-      // FIXED: Force pass window.currentLanguage on the very first render execution
-      if (viewName === 'education') {
+      } else if (viewName === 'education' && !rendered.education) {
         renderEducationModule('education-container', window.currentDisorder, window.currentLanguage);
         rendered.education = true;
+      } else if (viewName === 'soundlull' && !rendered.soundlull) {
+        renderSoundlullModule('soundlull-container', window.currentDisorder);
+        rendered.soundlull = true;
       }
 
       // Update active nav item highlight classes
       document.querySelectorAll('.sidebar-nav-item').forEach(btn => btn.classList.remove('active'));
-      const navMap = { home: 'nav-home', screening: 'nav-screening', companion: 'nav-companion', education: 'nav-education' };
+      const navMap = { home: 'nav-home', screening: 'nav-screening', companion: 'nav-companion', education: 'nav-education', soundlull: 'nav-soundlull' };
       const activeBtn = document.getElementById(navMap[viewName]);
       if (activeBtn) activeBtn.classList.add('active');
     };
@@ -303,9 +285,11 @@
       rendered.screening = false;
       rendered.companion = false;
       rendered.education = false;
+      rendered.soundlull = false;
       document.getElementById('screening-container').innerHTML = '';
       document.getElementById('companion-container').innerHTML = '';
       document.getElementById('education-container').innerHTML = '';
+      document.getElementById('soundlull-container').innerHTML = '';
 
       document.getElementById('app-shell').classList.add('hidden');
       document.getElementById('landing-screen').classList.remove('hidden');

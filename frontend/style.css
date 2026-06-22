@@ -1081,3 +1081,33 @@ input, textarea { font-family: inherit; }
 .speaker-btn:active {
   transform: scale(0.92);
 }
+
+
+.soundlull-selectable {
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-accent);
+}
+
+.soundlull-selectable:hover {
+  background: rgba(0, 224, 122, 0.02);
+  border-color: rgba(0, 224, 122, 0.3);
+  transform: translateY(-2px);
+}
+
+.soundlull-selectable.active-gold {
+  border-color: #e0b176 !important;
+  background: rgba(224, 177, 118, 0.05) !important;
+  box-shadow: 0 0 15px rgba(224, 177, 118, 0.15);
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.structural-orb-glow {
+  animation: bounce 2s infinite ease-in-out;
+  display: inline-block;
+}
