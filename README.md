@@ -87,16 +87,16 @@ python -m http.server 5500
 
 *Open your browser and navigate to **`http://localhost:5500`** to interact with the system dashboard.*
 
-cd backend
-python -m venv .venv
-(might require to run Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process)
-.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
-uvicorn main:app --reload
+cd backend<br>
+python -m venv .venv<br>
+(might require to run Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process)<br>
+.venv\Scripts\Activate.ps1<br>
+pip install -r requirements.txt<br>
+uvicorn main:app --reload<br><br>
 
 
-cd frontend
-python -m http.server 5500
+cd frontend<br>
+python -m http.server 5500<br>
 
 ## 🛡️ Critical Academic & Clinical Disclaimer
 
