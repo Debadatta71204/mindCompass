@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useTrack } from '../../contexts/TrackContext';
 import { QUESTIONS, getScoreProfile, TRACK_META } from '../../data/screening';
+import { ArrowRight, RotateCcw, AlertTriangle } from 'lucide-react';
 
 export default function ScreeningView() {
   const { currentDisorder } = useTrack();
@@ -92,6 +93,7 @@ export default function ScreeningView() {
         ))}
 
         <div className="clinical-warning-box">
+          <AlertTriangle size={16} className="text-danger-red flex-shrink-0 mt-0.5" />
           <p className="text-[0.85rem] text-danger-red font-semibold leading-relaxed">
             Warning: This informational screening tool does not verify or diagnose conditions.
             These signs suggest professional evaluation may be beneficial if you have concerns.
@@ -104,7 +106,7 @@ export default function ScreeningView() {
         )}
 
         <button type="submit" className="btn-primary mt-6">
-          Submit &amp; View Profile {'\u2192'}
+          Submit &amp; View Profile <ArrowRight size={16} />
         </button>
       </form>
 
@@ -141,6 +143,7 @@ export default function ScreeningView() {
             <p className="text-[0.9rem] text-txt-secondary leading-relaxed">{result.profile.description}</p>
 
             <div className="clinical-warning-box mt-5">
+              <AlertTriangle size={16} className="text-danger-red flex-shrink-0 mt-0.5" />
               <p className="text-[0.85rem] text-danger-red font-semibold leading-relaxed">
                 <strong>Clinical Boundary Notice:</strong> This informational screening tool does not verify
                 or diagnose conditions. These signs suggest professional evaluation may be beneficial if
@@ -149,7 +152,7 @@ export default function ScreeningView() {
             </div>
 
             <button className="btn-secondary mt-5" onClick={handleReset}>
-              Reset & Try Again
+              <RotateCcw size={14} /> Reset & Try Again
             </button>
           </div>
         </div>

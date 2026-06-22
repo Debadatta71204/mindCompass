@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useTrack } from '../contexts/TrackContext';
+import { ArrowLeft } from 'lucide-react';
 
 const TRACK_LABELS = {
   dementia: 'Dementia / Major NCD',
@@ -56,7 +57,7 @@ export default function HomeView() {
       </div>
 
       <button className="btn-secondary" onClick={goBackToLanding}>
-        {'\u2190'} Change Track
+        <ArrowLeft size={14} /> Change Track
       </button>
     </div>
   );

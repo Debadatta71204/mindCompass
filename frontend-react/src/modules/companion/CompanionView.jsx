@@ -5,6 +5,7 @@ import { MUSIC_TRACKS, TRACK_META, WELCOME_MESSAGES } from '../../data/companion
 import { sendCompanionMessage, sendVoiceMessage } from '../../utils/api';
 import { simpleMarkdown } from '../../utils/markdown';
 import { useVoiceRecorder } from '../../hooks/useVoiceRecorder';
+import { Music, MessageCircle, Mic, MicOff, AlertTriangle } from 'lucide-react';
 
 export default function CompanionView() {
   const { currentDisorder } = useTrack();
@@ -107,8 +108,8 @@ export default function CompanionView() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
         {/* Music Column */}
         <div>
-          <div className="text-[0.75rem] tracking-[0.1em] uppercase text-emerald-mid font-semibold mb-3">
-            Recommended Streams
+          <div className="text-[0.75rem] tracking-[0.1em] uppercase text-emerald-mid font-semibold mb-3 flex items-center gap-1.5">
+            <Music size={14} /> Recommended Streams
           </div>
 
           {tracks.map((track) => (
@@ -140,8 +141,8 @@ export default function CompanionView() {
 
         {/* Chat Column */}
         <div>
-          <div className="text-[0.75rem] tracking-[0.1em] uppercase text-emerald-mid font-semibold mb-3">
-            AI Companion Chat
+          <div className="text-[0.75rem] tracking-[0.1em] uppercase text-emerald-mid font-semibold mb-3 flex items-center gap-1.5">
+            <MessageCircle size={14} /> AI Companion Chat
           </div>
 
           <div className="bg-obsidian-card border border-black/5 rounded-lg flex flex-col h-[580px] overflow-hidden">
@@ -182,8 +183,8 @@ export default function CompanionView() {
               )}
             </div>
 
-            <div className="text-[0.68rem] text-txt-muted text-center tracking-[0.02em] py-2 px-4 border-y border-black/5">
-              Note: AI responses are informational only &nbsp;·&nbsp; Not a clinical tool &nbsp;·&nbsp; No medical advice
+            <div className="text-[0.68rem] text-txt-muted text-center tracking-[0.02em] py-2 px-4 border-y border-black/5 flex items-center justify-center gap-1">
+              <AlertTriangle size={12} /> AI responses are informational only &nbsp;·&nbsp; Not a clinical tool &nbsp;·&nbsp; No medical advice
             </div>
 
             <div className="border-t border-black/5 p-3.5 flex gap-2.5 items-end">
@@ -199,7 +200,7 @@ export default function CompanionView() {
                   title={isRecording ? 'Stop recording' : 'Start recording'}
                   aria-label={isRecording ? 'Stop recording' : 'Start recording'}
                 >
-                  {isRecording ? '[Stop]' : '[Mic]'}
+                  {isRecording ? <MicOff size={18} /> : <Mic size={18} />}
                 </button>
               )}
 

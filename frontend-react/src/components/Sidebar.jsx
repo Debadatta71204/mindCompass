@@ -2,13 +2,14 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useTrack } from '../contexts/TrackContext';
 import { theme } from '../theme';
+import { Home, ClipboardList, MessageCircle, BookOpen, Music } from 'lucide-react';
 
 const NAV_ITEMS = [
-  { id: 'home', label: 'Home', sub: 'Reset Track', icon: '' },
-  { id: 'screening', label: 'Module 1', sub: 'Screening Check-In', icon: '' },
-  { id: 'companion', label: 'Module 2', sub: 'Creative Wellness Hub', icon: '' },
-  { id: 'education', label: 'Module 3', sub: 'Caregiver Support', icon: '' },
-  { id: 'soundlull', label: 'Module 4', sub: 'Soundlull Therapy', icon: '' },
+  { id: 'home', label: 'Home', sub: 'Reset Track', Icon: Home },
+  { id: 'screening', label: 'Module 1', sub: 'Screening Check-In', Icon: ClipboardList },
+  { id: 'companion', label: 'Module 2', sub: 'Creative Wellness Hub', Icon: MessageCircle },
+  { id: 'education', label: 'Module 3', sub: 'Caregiver Support', Icon: BookOpen },
+  { id: 'soundlull', label: 'Module 4', sub: 'Soundlull Therapy', Icon: Music },
 ];
 
 export default function Sidebar() {
@@ -60,10 +61,13 @@ export default function Sidebar() {
               key={item.id}
               href="/"
               onClick={handleHomeClick}
-              className="block py-[0.65rem] px-3 rounded-md text-txt-secondary text-[0.85rem] font-medium transition-all duration-200 text-left w-full hover:bg-obsidian-panel hover:text-txt-primary hover:no-underline no-underline"
+              className="flex items-center gap-2.5 py-[0.65rem] px-3 rounded-md text-txt-secondary text-[0.85rem] font-medium transition-all duration-200 text-left w-full hover:bg-obsidian-panel hover:text-txt-primary hover:no-underline no-underline"
             >
-              <span>{item.label}</span>
-              <span className="block text-[0.68rem] text-txt-muted font-normal">{item.sub}</span>
+              <item.Icon size={18} className="flex-shrink-0" />
+              <div>
+                <span>{item.label}</span>
+                <span className="block text-[0.68rem] text-txt-muted font-normal">{item.sub}</span>
+              </div>
             </a>
           );
         }
@@ -73,13 +77,16 @@ export default function Sidebar() {
             key={item.id}
             to={`/app/${item.id}`}
             className={({ isActive }) =>
-              `block py-[0.65rem] px-3 rounded-md text-txt-secondary text-[0.85rem] font-medium transition-all duration-200 text-left w-full hover:bg-obsidian-panel hover:text-txt-primary hover:no-underline no-underline ${
+              `flex items-center gap-2.5 py-[0.65rem] px-3 rounded-md text-txt-secondary text-[0.85rem] font-medium transition-all duration-200 text-left w-full hover:bg-obsidian-panel hover:text-txt-primary hover:no-underline no-underline ${
                 isActive ? '!text-emerald-mid !border !border-emerald-glow/30 bg-emerald-glow' : ''
               }`
             }
           >
-            <span>{item.label}</span>
-            <span className="block text-[0.68rem] text-txt-muted font-normal">{item.sub}</span>
+            <item.Icon size={18} className="flex-shrink-0" />
+            <div>
+              <span>{item.label}</span>
+              <span className="block text-[0.68rem] text-txt-muted font-normal">{item.sub}</span>
+            </div>
           </NavLink>
         );
       })}

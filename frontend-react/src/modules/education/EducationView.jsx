@@ -3,6 +3,7 @@ import { useTrack } from '../../contexts/TrackContext';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { EDUCATION_DATA } from '../../data/education';
 import { useSpeech } from '../../hooks/useSpeech';
+import { Volume2 } from 'lucide-react';
 
 const TRACK_ICONS = {
   dementia: '',
@@ -60,7 +61,7 @@ export default function EducationView() {
           {data.title}
           <button className="speaker-btn bg-transparent border-none cursor-pointer text-[1.15rem] ml-2 p-1 px-1.5 rounded-md inline-flex items-center justify-center transition-all hover:bg-white/5 hover:scale-[1.18] active:scale-[0.92] align-middle"
             data-text={data.title}>
-            [Speak]
+            <Volume2 size={14} />
           </button>
         </h2>
         <p className="module-subtitle">
@@ -77,14 +78,14 @@ export default function EducationView() {
               {section.title}
               <button className="speaker-btn bg-transparent border-none cursor-pointer text-[1.15rem] ml-2 p-1 px-1.5 rounded-md inline-flex items-center justify-center transition-all hover:bg-white/5 hover:scale-[1.18] active:scale-[0.92] align-middle"
                 data-text={section.title}>
-                [Speak]
+                <Volume2 size={14} />
               </button>
             </h3>
             <div className="text-[0.88rem] text-txt-secondary leading-relaxed">
               <div dangerouslySetInnerHTML={{ __html: section.body }} />
               <button className="speaker-btn bg-transparent border-none cursor-pointer text-[1.15rem] ml-2 p-1 px-1.5 rounded-md inline-flex items-center justify-center transition-all hover:bg-white/5 hover:scale-[1.18] active:scale-[0.92] align-middle"
                 data-text={section.body}>
-                [Speak]
+                <Volume2 size={14} />
               </button>
             </div>
 
@@ -97,7 +98,7 @@ export default function EducationView() {
                   {section.pathway}
                   <button className="speaker-btn bg-transparent border-none cursor-pointer text-[1.15rem] ml-2 p-1 px-1.5 rounded-md inline-flex items-center justify-center transition-all hover:bg-white/5 hover:scale-[1.18] active:scale-[0.92] align-middle"
                     data-text={section.pathway}>
-                    [Speak]
+                    <Volume2 size={14} />
                   </button>
                 </div>
               </div>

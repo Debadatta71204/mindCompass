@@ -3,6 +3,7 @@ import { useTrack } from '../../contexts/TrackContext';
 import { SOUNDLULL_CATALOG } from '../../data/soundlull';
 import { useAudioPlayer } from '../../hooks/useAudioPlayer';
 import { theme } from '../../theme';
+import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight, Play, Pause, StopCircle, RotateCcw } from 'lucide-react';
 
 const STEPS = {
   MOOD: 'mood',
@@ -91,7 +92,7 @@ export default function SoundlullView() {
         <div className="mt-10 text-right">
           <button className="btn-primary px-8 py-3.5 font-display font-semibold" disabled={!selectedMood} onClick={() => setStep(STEPS.INTENSITY)}
             style={!selectedMood ? { opacity: 0.2, cursor: 'not-allowed' } : {}}>
-            Continue Engine {'\u2192'}
+            Continue Engine <ArrowRight size={16} />
           </button>
         </div>
       </div>
@@ -116,10 +117,10 @@ export default function SoundlullView() {
           ))}
         </div>
         <div className="mt-10 flex justify-between">
-          <button className="btn-secondary px-7 py-3.5 font-display" onClick={() => setStep(STEPS.MOOD)}>{'\u2190'} Back</button>
+          <button className="btn-secondary px-7 py-3.5 font-display" onClick={() => setStep(STEPS.MOOD)}><ArrowLeft size={14} /> Back</button>
           <button className="btn-primary px-8 py-3.5 font-display" disabled={!selectedIntensity} onClick={() => setStep(STEPS.DURATION)}
             style={!selectedIntensity ? { opacity: 0.2, cursor: 'not-allowed' } : {}}>
-            Continue Engine {'\u2192'}
+            Continue Engine <ArrowRight size={16} />
           </button>
         </div>
       </div>
@@ -143,7 +144,7 @@ export default function SoundlullView() {
           ))}
         </div>
         <div className="mt-10 flex justify-between">
-          <button className="btn-secondary px-7 py-3.5 font-display" onClick={() => setStep(STEPS.INTENSITY)}>{'\u2190'} Back</button>
+          <button className="btn-secondary px-7 py-3.5 font-display" onClick={() => setStep(STEPS.INTENSITY)}><ArrowLeft size={14} /> Back</button>
           <button className="btn-primary px-9 py-3.5 font-display font-bold"
             disabled={!selectedDuration}
             onClick={() => setStep(STEPS.LOADING)}
@@ -197,22 +198,22 @@ export default function SoundlullView() {
         </div>
 
         <div className="flex justify-center gap-6 items-center">
-          <button className="btn-secondary px-6 py-3.5 rounded-md" onClick={() => shiftTrack(-1, playlistRef.current, handleEnd, handleError)}>
-            Prev
+          <button className="btn-secondary px-4 py-3.5 rounded-md" onClick={() => shiftTrack(-1, playlistRef.current, handleEnd, handleError)}>
+            <ChevronLeft size={18} />
           </button>
           <button className={`btn-primary rounded-full w-[68px] h-[68px] inline-flex items-center justify-center p-0 text-[1.8rem] bg-emerald-bright border-none text-[${theme.bg}]`}
             onClick={toggle}>
-            {isPlaying ? '||' : '>'}
+            {isPlaying ? <Pause size={24} /> : <Play size={24} />}
           </button>
-          <button className="btn-secondary px-6 py-3.5 rounded-md" onClick={() => shiftTrack(1, playlistRef.current, handleEnd, handleError)}>
-            Next
+          <button className="btn-secondary px-4 py-3.5 rounded-md" onClick={() => shiftTrack(1, playlistRef.current, handleEnd, handleError)}>
+            <ChevronRight size={18} />
           </button>
         </div>
 
         <div className="mt-10 pt-6 border-t border-[rgb(61,49,36,0.12)] text-center">
           <button className="btn-secondary text-[#c44545] border-[rgba(196,69,69,0.25)] text-[0.85rem] px-5 py-2.5"
             onClick={() => { stop(); setStep(STEPS.FEEDBACK); }}>
-            Terminate Flow Early
+            <StopCircle size={14} /> Terminate Flow Early
           </button>
         </div>
       </div>
@@ -246,7 +247,7 @@ export default function SoundlullView() {
       <div className="text-center py-20 px-8 bg-obsidian-card rounded-[16px] border border-[rgba(192,128,90,0.3)] max-w-[600px] mx-auto mt-10">
         <h2 className="font-display text-[2rem] text-txt-primary font-bold m-0">Acoustic Waveform Logged</h2>
         <p className="text-txt-secondary text-base mt-3 mb-9">Session parameters successfully integrated into your profile logs.</p>
-        <button className="btn-primary px-9 py-3.5" onClick={restart}>Begin New Cycle</button>
+        <button className="btn-primary px-9 py-3.5" onClick={restart}><RotateCcw size={16} /> Begin New Cycle</button>
       </div>
     );
   }

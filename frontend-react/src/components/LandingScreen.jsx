@@ -2,10 +2,12 @@ import { useState, startTransition } from 'react';
 import { useTrack } from '../contexts/TrackContext';
 import { useNavigate } from 'react-router-dom';
 import { theme } from '../theme';
+import { Brain, Zap, Sprout, Hexagon, ArrowRight } from 'lucide-react';
 
 const TRACKS = [
   {
     id: 'dementia',
+    Icon: Brain,
     badge: 'DSM-5 \u2014 Major NCD',
     title: 'Dementia / Major NCD',
     desc: 'Informational support covering memory, language, and executive function changes. Includes Reminiscence Therapy resources and caregiver referral pathways.',
@@ -13,6 +15,7 @@ const TRACKS = [
   },
   {
     id: 'adhd',
+    Icon: Zap,
     badge: 'DSM-5 \u2014 Neurodevelopmental',
     title: 'ADHD',
     desc: 'Informational support for attention, hyperactivity, and impulsivity patterns. Includes focus-based music therapy and structured learning accommodations.',
@@ -20,6 +23,7 @@ const TRACKS = [
   },
   {
     id: 'mci',
+    Icon: Sprout,
     badge: 'DSM-5 \u2014 Mild NCD',
     title: 'Mild Cognitive Impairment (MCI)',
     desc: 'Informational support distinguishing normal aging from MCI. Includes Cognitive Stimulation Therapy activities and professional consultation guidance.',
@@ -53,10 +57,8 @@ export default function LandingScreen() {
       style={{ background: `radial-gradient(ellipse 80% 60% at 50% 0%, ${theme.accentGlow} 0%, transparent 70%), ${theme.bg}` }}>
       <div className="max-w-[1100px] w-full flex flex-col items-center gap-10">
         <div className="text-center page-enter">
-          <span className="text-[3rem] text-emerald-bright block mb-2"
-            style={{ filter: `drop-shadow(0 0 18px ${theme.accentGlowLg})` }}>
-            {'\u2B21'}
-          </span>
+          <Hexagon size={48} className="text-emerald-bright block mx-auto mb-2" fill={theme.accentGlow}
+            style={{ filter: 'drop-shadow(0 0 18px rgba(192,128,90,0.55))' }} />
           <h1 className="font-display text-[3rem] font-bold tracking-[-0.03em] text-txt-primary leading-none">
             MindCompass
           </h1>
@@ -85,13 +87,16 @@ export default function LandingScreen() {
                 onMouseEnter={(e) => { e.currentTarget.style.opacity = '1'; }}
                 onMouseLeave={(e) => { e.currentTarget.style.opacity = '0'; }}
               />
+              <track.Icon size={32} className="text-emerald-bright block mb-1" />
               <span className="text-[0.68rem] tracking-[0.1em] uppercase text-emerald-mid font-semibold">{track.badge}</span>
               <h2 className="font-display text-[1.5rem] font-bold text-txt-primary leading-tight">{track.title.replace('/ Major NCD', '/\nMajor NCD')}</h2>
               <p className="text-[0.85rem] text-txt-secondary leading-relaxed flex-1">{track.desc}</p>
               <div className="flex flex-wrap gap-1.5 mt-1">
                 {track.tags.map((tag) => <span key={tag} className="tag">{tag}</span>)}
               </div>
-              <span className="text-[0.82rem] font-semibold text-emerald-bright mt-2 tracking-[0.03em]">Enter Track {'\u2192'}</span>
+              <span className="text-[0.82rem] font-semibold text-emerald-bright mt-2 tracking-[0.03em] inline-flex items-center gap-1">
+                Enter Track <ArrowRight size={14} />
+              </span>
             </button>
           ))}
         </div>
