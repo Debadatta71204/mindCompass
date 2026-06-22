@@ -1,4 +1,4 @@
-```
+
 # MindCompass — Academic Cognitive Wellness Dashboard
 
 MindCompass is an empathetic, full-stack informational prototype designed to provide structured psychoeducation and cognitive support tracking using a **DSM-5 aligned clinical framework**. Built as a B.Tech Computer Science and Engineering final year academic project, the platform translates abstract diagnostic criteria into actionable caregiver insights, focus-based environmental accommodations, and regional accessibility resources.
@@ -67,7 +67,7 @@ pip install -r requirements.txt
 
 # Boot the FastAPI server via Uvicorn hot-reload tool
 uvicorn main:app --reload
-```
+
 
 *The backend server will instantiate securely on port `8000` (`http://127.0.0.1:8000`).*
 
