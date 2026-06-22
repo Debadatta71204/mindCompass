@@ -6,7 +6,6 @@ import { theme } from '../theme';
 const TRACKS = [
   {
     id: 'dementia',
-    icon: '\u{1F9E0}',
     badge: 'DSM-5 \u2014 Major NCD',
     title: 'Dementia / Major NCD',
     desc: 'Informational support covering memory, language, and executive function changes. Includes Reminiscence Therapy resources and caregiver referral pathways.',
@@ -14,7 +13,6 @@ const TRACKS = [
   },
   {
     id: 'adhd',
-    icon: '\u26A1',
     badge: 'DSM-5 \u2014 Neurodevelopmental',
     title: 'ADHD',
     desc: 'Informational support for attention, hyperactivity, and impulsivity patterns. Includes focus-based music therapy and structured learning accommodations.',
@@ -22,7 +20,6 @@ const TRACKS = [
   },
   {
     id: 'mci',
-    icon: '\u{1F331}',
     badge: 'DSM-5 \u2014 Mild NCD',
     title: 'Mild Cognitive Impairment (MCI)',
     desc: 'Informational support distinguishing normal aging from MCI. Includes Cognitive Stimulation Therapy activities and professional consultation guidance.',
@@ -34,12 +31,6 @@ const TRACK_LABELS = {
   dementia: 'Dementia / Major NCD',
   adhd: 'ADHD',
   mci: 'MCI',
-};
-
-const TRACK_ICONS = {
-  dementia: '\u{1F9E0}',
-  adhd: '\u26A1',
-  mci: '\u{1F331}',
 };
 
 export default function LandingScreen() {
@@ -94,7 +85,6 @@ export default function LandingScreen() {
                 onMouseEnter={(e) => { e.currentTarget.style.opacity = '1'; }}
                 onMouseLeave={(e) => { e.currentTarget.style.opacity = '0'; }}
               />
-              <span className="text-[2rem] block mb-1">{track.icon}</span>
               <span className="text-[0.68rem] tracking-[0.1em] uppercase text-emerald-mid font-semibold">{track.badge}</span>
               <h2 className="font-display text-[1.5rem] font-bold text-txt-primary leading-tight">{track.title.replace('/ Major NCD', '/\nMajor NCD')}</h2>
               <p className="text-[0.85rem] text-txt-secondary leading-relaxed flex-1">{track.desc}</p>

@@ -16,13 +16,13 @@ const MUSIC_TRACKS = {
       id:    "Zy7c8v-g5f0",
       title: "Soothing Classical Piano",
       desc:  "Gentle classical compositions to evoke calm and comfort.",
-      icon:  "🎹",
+      icon:  "",
     },
     {
       id:    "VwzR8G_878o",
       title: "Familiar Oldies Collection",
       desc:  "Beloved familiar melodies to gently stimulate long-term memory recall.",
-      icon:  "🎶",
+      icon:  "",
     },
   ],
   adhd: [
@@ -30,13 +30,13 @@ const MUSIC_TRACKS = {
       id:    "1Rc7k4RQ7hs",
       title: "Binaural Focus Beats",
       desc:  "Binaural audio streams designed to support sustained attention and reduce mental restlessness.",
-      icon:  "🎧",
+      icon:  "",
     },
     {
       id:    "Xf3-4A-uEc8",
       title: "Deep Focus Lofi Mix",
       desc:  "Instrumental lofi study beats curated to support consistent focus during deep work sessions.",
-      icon:  "🎮",
+      icon:  "",
     },
   ],
   mci: [
@@ -44,21 +44,21 @@ const MUSIC_TRACKS = {
       id:    "WPni755-gTY",
       title: "Alpha Memory Waves",
       desc:  "Alpha-range (8–12 Hz) binaural audio to support a calm, alert mental state for cognitive activity.",
-      icon:  "🌊",
+      icon:  "",
     },
     {
       id:    "5qap5aO4i9A",
       title: "Acoustic Focus Rhythms",
       desc:  "Soft acoustic rhythms to provide a calm background environment during cognitive stimulation activities.",
-      icon:  "🎸",
+      icon:  "",
     },
   ],
 };
 
 const TRACK_META = {
-  dementia: { label: "Dementia / Major NCD", icon: "🧠" },
-  adhd:     { label: "ADHD",                 icon: "⚡" },
-  mci:      { label: "MCI",                  icon: "🌱" },
+  dementia: { label: "Dementia / Major NCD", icon: "" },
+  adhd:     { label: "ADHD",                 icon: "" },
+  mci:      { label: "MCI",                  icon: "" },
 };
 
 // ─────────────────────────────────────────────────────────────────────
@@ -146,7 +146,7 @@ export function renderCompanionModule(containerId, activeDisorder) {
   // Initial welcome bubble
   const welcomeBubbleHTML = /* html */`
     <div class="chat-bubble ai" id="welcome-bubble">
-      <div class="ai-label">⬡ MindCompass AI</div>
+      <div class="ai-label">MindCompass AI</div>
       ${simpleMarkdown(welcome)}
     </div>
   `;
@@ -166,7 +166,7 @@ export function renderCompanionModule(containerId, activeDisorder) {
 
       <!-- LEFT COLUMN: Music Therapy -->
       <div class="music-column">
-        <div class="music-column-title">🎵 Recommended Streams</div>
+        <div class="music-column-title">Recommended Streams</div>
         ${videoCards}
         <div style="font-size:0.72rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5;">
           ℹ These streams are curated for informational support. Music therapy is a complementary
@@ -176,7 +176,7 @@ export function renderCompanionModule(containerId, activeDisorder) {
 
       <!-- RIGHT COLUMN: AI Companion Chat -->
       <div class="chat-column">
-        <div class="chat-column-title">💬 AI Companion Chat</div>
+        <div class="chat-column-title">AI Companion Chat</div>
 
         <div class="chat-panel" id="chat-panel">
 
@@ -185,7 +185,7 @@ export function renderCompanionModule(containerId, activeDisorder) {
           </div>
 
           <div class="chat-api-notice" role="note">
-            ⚠ AI responses are informational only &nbsp;·&nbsp; Not a clinical tool &nbsp;·&nbsp; No medical advice
+            AI responses are informational only &nbsp;·&nbsp; Not a clinical tool &nbsp;·&nbsp; No medical advice
           </div>
 
           <div class="chat-input-area">
@@ -231,7 +231,7 @@ export function renderCompanionModule(containerId, activeDisorder) {
     if (role === 'ai') {
       const label = document.createElement('div');
       label.className = 'ai-label';
-      label.textContent = '⬡ MindCompass AI';
+      label.textContent = 'MindCompass AI';
       bubble.appendChild(label);
     }
 

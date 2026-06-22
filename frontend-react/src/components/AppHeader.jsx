@@ -24,7 +24,7 @@ export default function AppHeader() {
         </span>
       </div>
       <div className="text-[0.7rem] text-[#c44545] tracking-[0.03em]">
-        {'\u26A0'} Academic Informational Prototype — Not a clinical tool
+        Academic Informational Prototype — Not a clinical tool
       </div>
     </header>
   );

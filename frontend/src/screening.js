@@ -110,9 +110,9 @@ function getScoreProfile(score, disorder) {
 // Markdown-to-HTML (minimal, safe, no external deps)
 // ─────────────────────────────────────────────────────────────────────
 const TRACK_META = {
-  dementia: { label: "Dementia / Major NCD", icon: "🧠" },
-  adhd:     { label: "ADHD",                 icon: "⚡" },
-  mci:      { label: "MCI",                  icon: "🌱" },
+  dementia: { label: "Dementia / Major NCD", icon: "" },
+  adhd:     { label: "ADHD",                 icon: "" },
+  mci:      { label: "MCI",                  icon: "" },
 };
 
 // ─────────────────────────────────────────────────────────────────────
@@ -177,7 +177,6 @@ export function renderScreeningModule(containerId, activeDisorder) {
       ${questionCards}
 
       <div class="clinical-warning-box" role="note" aria-label="Clinical boundary warning">
-        <span class="warning-icon">⚠️</span>
         <p class="clinical-warning-text">
           Before submitting: This informational screening tool does not verify or diagnose conditions.
           These signs suggest professional evaluation may be beneficial if you have concerns.
@@ -226,7 +225,7 @@ export function renderScreeningModule(containerId, activeDisorder) {
         const err = document.createElement('p');
         err.id = 'validation-err';
         err.style.cssText = 'color:var(--danger-red);font-size:0.85rem;margin-top:0.5rem;font-weight:600;';
-        err.textContent = '⚠ Please answer all 5 questions before submitting.';
+        err.textContent = 'Please answer all 5 questions before submitting.';
         form.querySelector('.submit-screening-btn').before(err);
         setTimeout(() => err.remove(), 4000);
       }
@@ -247,7 +246,7 @@ export function renderScreeningModule(containerId, activeDisorder) {
     // Score bar segments
     const barSegments = perQuestion.map(q => {
       const pct  = (q.score / 2) * 100;
-      const colour = q.score === 0 ? '#2d4a38' : q.score === 1 ? '#7a6c00' : '#7a0000';
+      const colour = q.score === 0 ? '#b8a494' : q.score === 1 ? '#d4a860' : '#c44545';
       return /* html */`
         <div style="flex:1; display:flex; flex-direction:column; gap:0.25rem; align-items:center;">
           <div style="width:100%; height:6px; background:var(--bg-input); border-radius:3px; overflow:hidden;">
@@ -279,7 +278,6 @@ export function renderScreeningModule(containerId, activeDisorder) {
         <p class="score-profile-text">${profile.description}</p>
 
         <div class="clinical-warning-box" style="margin-top:1.25rem;" role="alert">
-          <span class="warning-icon">🚨</span>
           <p class="clinical-warning-text">
             <strong>Clinical Boundary Notice:</strong> This informational screening tool does not verify
             or diagnose conditions. These signs suggest professional evaluation may be beneficial if

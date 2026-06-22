@@ -46,7 +46,7 @@ export function getScoreProfile(score, disorder) {
 }
 
 export const TRACK_META = {
-  dementia: { label: 'Dementia / Major NCD', icon: '\u{1F9E0}' },
-  adhd: { label: 'ADHD', icon: '\u26A1' },
-  mci: { label: 'MCI', icon: '\u{1F331}' },
+  dementia: { label: 'Dementia / Major NCD', icon: '' },
+  adhd:     { label: 'ADHD',                 icon: '' },
+  mci:      { label: 'MCI',                  icon: '' },
 };

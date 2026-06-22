@@ -83,7 +83,6 @@ export default function SoundlullView() {
               className={`home-module-tile soundlull-selectable p-7 rounded-xl transition-all duration-200 ${selectedMood === m.id ? 'active-gold' : ''}`}
               onClick={() => setSelectedMood(m.id)}
             >
-              <div className="text-[2.5rem] mb-4">{m.icon}</div>
               <div className="font-display text-[1.3rem] text-txt-primary font-semibold">{m.label}</div>
               <div className="mt-2.5 text-[0.9rem] leading-relaxed text-txt-secondary">{m.desc}</div>
             </div>
@@ -110,7 +109,6 @@ export default function SoundlullView() {
               className={`home-module-tile soundlull-selectable p-7 rounded-xl ${selectedIntensity === i.id ? 'active-gold' : ''}`}
               onClick={() => setSelectedIntensity(i.id)}
             >
-              <div className="text-[2.2rem] mb-3.5">{'\u{1F39A}\uFE0F'}</div>
               <div className="font-display text-[1.3rem] text-txt-primary font-semibold">{i.label}</div>
               <div className="mt-2.5 text-[0.9rem] text-txt-secondary leading-relaxed">{i.desc}</div>
               <span className="inline-block mt-4 text-[0.75rem] bg-emerald-glow text-emerald-bright px-3 py-1.5 rounded-md font-semibold uppercase tracking-[0.05em]">{i.level}</span>
@@ -139,7 +137,6 @@ export default function SoundlullView() {
               className={`home-module-tile soundlull-selectable p-8 rounded-xl text-center ${selectedDuration === d.mins ? 'active-gold' : ''}`}
               onClick={() => setSelectedDuration(d.mins)}
             >
-              <div className="text-[2.5rem] mb-3.5">{'\u23F1\uFE0F'}</div>
               <div className="font-display text-[1.4rem] text-txt-primary font-bold">{d.label}</div>
               <div className="mt-1.5 text-[0.8rem] text-txt-muted">Continuous Down-Regulation</div>
             </div>
@@ -155,7 +152,7 @@ export default function SoundlullView() {
               border: 'none',
               boxShadow: `0 4px 20px rgba(192,128,90,0.25)`,
             }}>
-            Initialize Waveform {'\u{1F9D8}\u2728'}
+            Initialize Waveform
           </button>
         </div>
       </div>
@@ -165,7 +162,6 @@ export default function SoundlullView() {
   function renderLoadingStep() {
     return (
       <div className="text-center py-24 px-8 bg-obsidian-card rounded-[16px] border border-[rgba(192,128,90,0.3)]">
-        <div className="structural-orb-glow text-[4rem] mb-6">{'\u{1F31F}'}</div>
         <h3 className="font-display text-[2rem] text-txt-primary font-semibold m-0">Executing Playlist Selection Pass...</h3>
         <p className="mt-3 text-txt-secondary text-[1.05rem] leading-relaxed">Running greedy selection strategy across candidate metadata fields.</p>
       </div>
@@ -202,21 +198,21 @@ export default function SoundlullView() {
 
         <div className="flex justify-center gap-6 items-center">
           <button className="btn-secondary px-6 py-3.5 rounded-md" onClick={() => shiftTrack(-1, playlistRef.current, handleEnd, handleError)}>
-            {'\u2039'} Prev
+            Prev
           </button>
           <button className={`btn-primary rounded-full w-[68px] h-[68px] inline-flex items-center justify-center p-0 text-[1.8rem] bg-emerald-bright border-none text-[${theme.bg}]`}
             onClick={toggle}>
-            {isPlaying ? '\u23F8' : '\u25B6'}
+            {isPlaying ? '||' : '>'}
           </button>
           <button className="btn-secondary px-6 py-3.5 rounded-md" onClick={() => shiftTrack(1, playlistRef.current, handleEnd, handleError)}>
-            Next {'\u203A'}
+            Next
           </button>
         </div>
 
         <div className="mt-10 pt-6 border-t border-[rgb(61,49,36,0.12)] text-center">
           <button className="btn-secondary text-[#c44545] border-[rgba(196,69,69,0.25)] text-[0.85rem] px-5 py-2.5"
             onClick={() => { stop(); setStep(STEPS.FEEDBACK); }}>
-            Terminate Flow Early {'\u2715'}
+            Terminate Flow Early
           </button>
         </div>
       </div>
@@ -230,9 +226,9 @@ export default function SoundlullView() {
         <p className="text-txt-secondary text-center mb-8">How has your focus baseline adjusted?</p>
         <div className="flex flex-col gap-3.5">
           {[
-            '\u2728 Deeply Restored & Clearheaded',
-            '\u{1F60C} Grounded & Intentionally Still',
-            '\u{1F610} Neutral / No Clear Change',
+            'Deeply Restored & Clearheaded',
+            'Grounded & Intentionally Still',
+            'Neutral / No Clear Change',
           ].map((label) => (
             <button key={label} className="text-left p-[18px] rounded-md text-txt-primary border border-black/10 transition-all hover:border-emerald-bright hover:bg-obsidian-card-hover"
               style={{ background: 'rgba(61,49,36,0.02)' }}
@@ -248,10 +244,9 @@ export default function SoundlullView() {
   function renderCompleteStep() {
     return (
       <div className="text-center py-20 px-8 bg-obsidian-card rounded-[16px] border border-[rgba(192,128,90,0.3)] max-w-[600px] mx-auto mt-10">
-        <div className="text-[4rem] mb-5">{'\u{1F3C6}'}</div>
         <h2 className="font-display text-[2rem] text-txt-primary font-bold m-0">Acoustic Waveform Logged</h2>
         <p className="text-txt-secondary text-base mt-3 mb-9">Session parameters successfully integrated into your profile logs.</p>
-        <button className="btn-primary px-9 py-3.5" onClick={restart}>Begin New Cycle {'\u21BA'}</button>
+        <button className="btn-primary px-9 py-3.5" onClick={restart}>Begin New Cycle</button>
       </div>
     );
   }
@@ -260,7 +255,7 @@ export default function SoundlullView() {
     <div>
       <div className="module-header" style={{ marginBottom: '36px', paddingBottom: '24px', borderBottom: '1px solid rgb(61,49,36,0.12)' }}>
         <div style={{ color: '#c0805a', fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', fontSize: '0.78rem' }}>
-          {'\u{1F30A}'} Module 04 &nbsp;·&nbsp; Advanced Bio-Acoustics
+          Module 04 &nbsp;·&nbsp; Advanced Bio-Acoustics
         </div>
         <h2 className="font-display text-[2.4rem] text-txt-primary font-bold mt-1.5">Soundlull Care Engine</h2>
       </div>

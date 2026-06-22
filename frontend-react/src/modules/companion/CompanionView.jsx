@@ -58,7 +58,7 @@ export default function CompanionView() {
       const blob = await stopRecording();
       if (!blob) return;
 
-      setMessages((prev) => [...prev, { role: 'user', content: '\u{1F3A4} Voice message' }]);
+      setMessages((prev) => [...prev, { role: 'user', content: '[Voice] Voice message' }]);
       setLoading(true);
 
       try {
@@ -108,7 +108,7 @@ export default function CompanionView() {
         {/* Music Column */}
         <div>
           <div className="text-[0.75rem] tracking-[0.1em] uppercase text-emerald-mid font-semibold mb-3">
-            {'\u{1F3B5}'} Recommended Streams
+            Recommended Streams
           </div>
 
           {tracks.map((track) => (
@@ -133,7 +133,7 @@ export default function CompanionView() {
           ))}
 
           <div className="text-[0.72rem] text-txt-muted mt-2 leading-relaxed">
-            {'\u2117'} These streams are curated for informational support. Music therapy is a complementary
+            These streams are curated for informational support. Music therapy is a complementary
             wellness activity and does not replace professional clinical intervention.
           </div>
         </div>
@@ -141,7 +141,7 @@ export default function CompanionView() {
         {/* Chat Column */}
         <div>
           <div className="text-[0.75rem] tracking-[0.1em] uppercase text-emerald-mid font-semibold mb-3">
-            {'\u{1F4AC}'} AI Companion Chat
+            AI Companion Chat
           </div>
 
           <div className="bg-obsidian-card border border-black/5 rounded-lg flex flex-col h-[580px] overflow-hidden">
@@ -160,7 +160,7 @@ export default function CompanionView() {
                 >
                   {msg.role === 'ai' && (
                     <div className="text-[0.68rem] tracking-[0.1em] uppercase text-emerald-mid font-semibold mb-[0.3rem]">
-                      {'\u2B21'} MindCompass AI
+                      MindCompass AI
                     </div>
                   )}
                   <div dangerouslySetInnerHTML={{ __html: msg.role === 'ai' && !msg.isError ? simpleMarkdown(msg.content) : msg.content }} />
@@ -170,7 +170,7 @@ export default function CompanionView() {
               {loading && (
                 <div className="chat-bubble ai loading self-start bg-obsidian-panel border border-black/5 text-txt-primary rounded-bl-[4px] max-w-[82%] px-4 py-3 rounded-md">
                   <div className="text-[0.68rem] tracking-[0.1em] uppercase text-emerald-mid font-semibold mb-[0.3rem]">
-                    {'\u2B21'} MindCompass AI
+                    MindCompass AI
                   </div>
                   <div className="flex gap-1">
                     {[0, 1, 2].map((i) => (
@@ -183,7 +183,7 @@ export default function CompanionView() {
             </div>
 
             <div className="text-[0.68rem] text-txt-muted text-center tracking-[0.02em] py-2 px-4 border-y border-black/5">
-              {'\u26A0'} AI responses are informational only &nbsp;·&nbsp; Not a clinical tool &nbsp;·&nbsp; No medical advice
+              Note: AI responses are informational only &nbsp;·&nbsp; Not a clinical tool &nbsp;·&nbsp; No medical advice
             </div>
 
             <div className="border-t border-black/5 p-3.5 flex gap-2.5 items-end">
@@ -199,7 +199,7 @@ export default function CompanionView() {
                   title={isRecording ? 'Stop recording' : 'Start recording'}
                   aria-label={isRecording ? 'Stop recording' : 'Start recording'}
                 >
-                  {isRecording ? '\u{1F534}' : '\u{1F3A4}'}
+                  {isRecording ? '[Stop]' : '[Mic]'}
                 </button>
               )}
 

@@ -312,17 +312,17 @@ export function renderEducationModule(containerId, activeDisorder, currentLang =
   }
 
   const data = trackData[currentLang];
-  const trackIcons = { dementia: "🎹", adhd: "🎧", mci: "🌊" };
-  const trackIcon = trackIcons[disorder] || "🧠";
+  const trackIcons = { dementia: "", adhd: "", mci: "" };
+  const trackIcon = '';
 
   // Build the individual section cards dynamically from the sections array loop
   const sectionCards = data.sections.map((section, i) => {
     const pathwayMarkup = section.pathway 
       ? `<div class="referral-card" style="margin-top:15px;" role="complementary">
-           <div class="referral-title">📋 Recommended Consultation Pathways</div>
+           <div class="referral-title">Recommended Consultation Pathways</div>
            <div class="edu-section-body" style="padding: 10px 0 0 0;">
              ${section.pathway}
-             <button class="speaker-btn" data-text="${section.pathway}" aria-label="Speak path">🔊</button>
+              <button class="speaker-btn" data-text="${section.pathway}" aria-label="Speak path">[Speak]</button>
            </div>
          </div>`
       : '';
@@ -332,11 +332,11 @@ export function renderEducationModule(containerId, activeDisorder, currentLang =
         <div class="edu-section-eyebrow">${section.eyebrow}</div>
         <h3 class="edu-section-title">
           ${section.title} 
-          <button class="speaker-btn" data-text="${section.title}" aria-label="Speak section title">🔊</button>
+          <button class="speaker-btn" data-text="${section.title}" aria-label="Speak section title">[Speak]</button>
         </h3>
         <div class="edu-section-body">
           ${section.body}
-          <button class="speaker-btn" data-text="${section.body}" aria-label="Speak section content">🔊</button>
+          <button class="speaker-btn" data-text="${section.body}" aria-label="Speak section content">[Speak]</button>
         </div>
         ${pathwayMarkup}
       </section>
@@ -349,7 +349,7 @@ export function renderEducationModule(containerId, activeDisorder, currentLang =
       <div class="module-eyebrow">${trackIcon} Module 3 &nbsp;·&nbsp; ${disorder.toUpperCase()} Track</div>
       <h2 class="module-title">
         ${data.title} 
-        <button class="speaker-btn" data-text="${data.title}" aria-label="Speak main title">🔊</button>
+        <button class="speaker-btn" data-text="${data.title}" aria-label="Speak main title">[Speak]</button>
       </h2>
       <p class="module-subtitle">
         DSM-5 aligned informational content to help you understand the cognitive domain, 
@@ -361,7 +361,7 @@ export function renderEducationModule(containerId, activeDisorder, currentLang =
       ${sectionCards}
 
       <div class="edu-disclaimer-box" role="note" aria-label="Clinical disclaimer">
-        <strong>⚠ Academic Informational Prototype — Critical Disclaimer:</strong>
+        <strong>Academic Informational Prototype — Critical Disclaimer:</strong>
         All content in this module is for educational and informational purposes only, produced as a
         student academic project. It does not constitute clinical advice, professional opinion, medical
         recommendation, or a clinical diagnosis. The content references the DSM-5 framework for

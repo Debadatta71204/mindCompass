@@ -5,9 +5,9 @@ import { EDUCATION_DATA } from '../../data/education';
 import { useSpeech } from '../../hooks/useSpeech';
 
 const TRACK_ICONS = {
-  dementia: '\u{1F3B9}',
-  adhd: '\u{1F3A7}',
-  mci: '\u{1F30A}',
+  dementia: '',
+  adhd: '',
+  mci: '',
 };
 
 export default function EducationView() {
@@ -17,7 +17,7 @@ export default function EducationView() {
   const containerRef = useRef(null);
 
   const disorder = currentDisorder?.toLowerCase() || 'mci';
-  const trackIcon = TRACK_ICONS[disorder] || '\u{1F9E0}';
+  const trackIcon = TRACK_ICONS[disorder] || '';
   const trackData = EDUCATION_DATA[disorder];
 
   useEffect(() => {
@@ -60,7 +60,7 @@ export default function EducationView() {
           {data.title}
           <button className="speaker-btn bg-transparent border-none cursor-pointer text-[1.15rem] ml-2 p-1 px-1.5 rounded-md inline-flex items-center justify-center transition-all hover:bg-white/5 hover:scale-[1.18] active:scale-[0.92] align-middle"
             data-text={data.title}>
-            {'\u{1F50A}'}
+            [Speak]
           </button>
         </h2>
         <p className="module-subtitle">
@@ -77,27 +77,27 @@ export default function EducationView() {
               {section.title}
               <button className="speaker-btn bg-transparent border-none cursor-pointer text-[1.15rem] ml-2 p-1 px-1.5 rounded-md inline-flex items-center justify-center transition-all hover:bg-white/5 hover:scale-[1.18] active:scale-[0.92] align-middle"
                 data-text={section.title}>
-                {'\u{1F50A}'}
+                [Speak]
               </button>
             </h3>
             <div className="text-[0.88rem] text-txt-secondary leading-relaxed">
               <div dangerouslySetInnerHTML={{ __html: section.body }} />
               <button className="speaker-btn bg-transparent border-none cursor-pointer text-[1.15rem] ml-2 p-1 px-1.5 rounded-md inline-flex items-center justify-center transition-all hover:bg-white/5 hover:scale-[1.18] active:scale-[0.92] align-middle"
                 data-text={section.body}>
-                {'\u{1F50A}'}
+                [Speak]
               </button>
             </div>
 
             {section.pathway && (
               <div className="mt-4 bg-obsidian-panel border border-[rgba(192,128,90,0.3)] rounded-md p-4">
                 <div className="text-[0.78rem] tracking-[0.08em] uppercase text-emerald-bright font-bold mb-2">
-                  {'\u{1F4CB}'} Recommended Consultation Pathways
+                  Recommended Consultation Pathways
                 </div>
                 <div className="text-[0.88rem] text-txt-secondary leading-relaxed pt-2.5">
                   {section.pathway}
                   <button className="speaker-btn bg-transparent border-none cursor-pointer text-[1.15rem] ml-2 p-1 px-1.5 rounded-md inline-flex items-center justify-center transition-all hover:bg-white/5 hover:scale-[1.18] active:scale-[0.92] align-middle"
                     data-text={section.pathway}>
-                    {'\u{1F50A}'}
+                    [Speak]
                   </button>
                 </div>
               </div>
@@ -106,7 +106,7 @@ export default function EducationView() {
         ))}
 
         <div className="mt-6 bg-danger-bg border border-danger-border rounded-md p-4 text-[0.82rem] text-[#c44545] leading-relaxed">
-          <strong className="text-danger-red">{'\u26A0'} Academic Informational Prototype — Critical Disclaimer:</strong>
+          <strong className="text-danger-red">Warning: Academic Informational Prototype — Critical Disclaimer:</strong>
           {' '}All content in this module is for educational and informational purposes only, produced as a
           student academic project. It does not constitute clinical advice, professional opinion, medical
           recommendation, or a clinical diagnosis. The content references the DSM-5 framework for

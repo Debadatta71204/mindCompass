@@ -12,7 +12,6 @@
 <body>
 
   <div class="global-disclaimer-banner">
-    <span class="disclaimer-icon">⚠</span>
     <strong>Academic Informational Prototype Only.</strong>
     This tool does NOT provide clinical diagnoses, medical advice, or treatment recommendations.
     Always consult a qualified healthcare professional for medical concerns.
@@ -30,7 +29,6 @@
       <div class="track-cards-grid">
 
         <button class="track-card" onclick="selectTrack('dementia')" aria-label="Select Dementia / Major NCD track">
-          <div class="track-card-icon">🧠</div>
           <div class="track-card-badge">DSM-5 — Major NCD</div>
           <h2 class="track-card-title">Dementia<br/>Major NCD</h2>
           <p class="track-card-desc">
@@ -46,7 +44,6 @@
         </button>
 
         <button class="track-card" onclick="selectTrack('adhd')" aria-label="Select ADHD track">
-          <div class="track-card-icon">⚡</div>
           <div class="track-card-badge">DSM-5 — Neurodevelopmental</div>
           <h2 class="track-card-title">ADHD</h2>
           <p class="track-card-desc">
@@ -62,7 +59,6 @@
         </button>
 
         <button class="track-card" onclick="selectTrack('mci')" aria-label="Select Mild Cognitive Impairment track">
-          <div class="track-card-icon">🌱</div>
           <div class="track-card-badge">DSM-5 — Mild NCD</div>
           <h2 class="track-card-title">Mild Cognitive<br/>Impairment (MCI)</h2>
           <p class="track-card-desc">
@@ -89,7 +85,7 @@
         <span class="app-header-track-pill" id="active-track-pill">—</span>
       </div>
       <div class="app-header-disclaimer">
-        ⚠ Academic Informational Prototype — Not a clinical tool
+        Academic Informational Prototype — Not a clinical tool
       </div>
     </header>
 
@@ -98,7 +94,7 @@
       <nav class="sidebar" aria-label="Module navigation">
         <div class="sidebar-section-label">NAVIGATION</div>
         <div class="language-selector-wrapper">
-          <label for="app-lang-select">🌐 Lang / ভাষা: </label>
+          <label for="app-lang-select">Lang / ভাষা: </label>
           <select id="app-lang-select">
             <option value="en" selected>English</option>
             <option value="bn">বাংলা (Bengali)</option>
@@ -111,7 +107,6 @@
         </div>
 
         <button class="sidebar-nav-item active" id="nav-home" onclick="navigateTo('home')">
-          <span class="nav-icon">⊙</span>
           <span>Home</span>
           <span class="nav-hint">Reset Track</span>
         </button>
@@ -119,25 +114,21 @@
         <div class="sidebar-section-label" style="margin-top: 1.5rem;">MODULES</div>
 
         <button class="sidebar-nav-item" id="nav-screening" onclick="navigateTo('screening')">
-          <span class="nav-icon">📋</span>
           <span>Module 1</span>
           <span class="nav-sub">Screening Check-In</span>
         </button>
 
         <button class="sidebar-nav-item" id="nav-companion" onclick="navigateTo('companion')">
-          <span class="nav-icon">💬</span>
           <span>Module 2</span>
           <span class="nav-sub">Creative Wellness Hub</span>
         </button>
 
         <button class="sidebar-nav-item" id="nav-education" onclick="navigateTo('education')">
-          <span class="nav-icon">📚</span>
           <span>Module 3</span>
           <span class="nav-sub">Caregiver Support</span>
         </button>
 
         <button class="sidebar-nav-item" id="nav-soundlull" onclick="navigateTo('soundlull')">
-          <span class="nav-icon">🎵</span>
           <span>Module 4</span>
           <span class="nav-sub">Soundlull Therapy</span>
         </button>
@@ -152,7 +143,7 @@
 
         <div id="view-home" class="content-view">
           <div class="home-welcome-card">
-            <div class="home-welcome-icon" id="home-welcome-icon">🧠</div>
+            <div class="home-welcome-icon" id="home-welcome-icon"></div>
             <h2 class="home-welcome-heading" id="home-welcome-heading">Welcome to MindCompass</h2>
             <p class="home-welcome-desc" id="home-welcome-desc">
               Your track has been loaded. Use the sidebar to navigate the four informational modules.
@@ -219,7 +210,7 @@
 
       // Update the active track pill label
       const labels = { dementia: 'Dementia / Major NCD', adhd: 'ADHD', mci: 'MCI' };
-      const icons  = { dementia: '🧠', adhd: '⚡', mci: '🌱' };
+      const icons  = { dementia: '', adhd: '', mci: '' };
       const descs  = {
         dementia: 'Navigate the modules below. All content is specific to the Dementia / Major NCD informational track.',
         adhd:     'Navigate the modules below. All content is specific to the ADHD informational track.',
@@ -227,7 +218,7 @@
       };
 
       document.getElementById('active-track-pill').textContent = labels[disorder] || disorder;
-      document.getElementById('home-welcome-icon').textContent   = icons[disorder]  || '⬡';
+      document.getElementById('home-welcome-icon').textContent   = '';
       document.getElementById('home-welcome-heading').textContent = `Welcome — ${labels[disorder]} Track`;
       document.getElementById('home-welcome-desc').textContent    = descs[disorder]  || '';
 

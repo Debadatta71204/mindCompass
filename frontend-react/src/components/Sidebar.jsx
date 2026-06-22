@@ -4,11 +4,11 @@ import { useTrack } from '../contexts/TrackContext';
 import { theme } from '../theme';
 
 const NAV_ITEMS = [
-  { id: 'home', label: 'Home', sub: 'Reset Track', icon: '\u2299' },
-  { id: 'screening', label: 'Module 1', sub: 'Screening Check-In', icon: '\u{1F4CB}' },
-  { id: 'companion', label: 'Module 2', sub: 'Creative Wellness Hub', icon: '\u{1F4AC}' },
-  { id: 'education', label: 'Module 3', sub: 'Caregiver Support', icon: '\u{1F4DA}' },
-  { id: 'soundlull', label: 'Module 4', sub: 'Soundlull Therapy', icon: '\u{1F3B5}' },
+  { id: 'home', label: 'Home', sub: 'Reset Track', icon: '' },
+  { id: 'screening', label: 'Module 1', sub: 'Screening Check-In', icon: '' },
+  { id: 'companion', label: 'Module 2', sub: 'Creative Wellness Hub', icon: '' },
+  { id: 'education', label: 'Module 3', sub: 'Caregiver Support', icon: '' },
+  { id: 'soundlull', label: 'Module 4', sub: 'Soundlull Therapy', icon: '' },
 ];
 
 export default function Sidebar() {
@@ -32,7 +32,7 @@ export default function Sidebar() {
       <div className="px-3 py-3 mb-3.5 mx-1 rounded-lg border border-black/10 flex flex-col gap-2"
         style={{ background: theme.borderSubtle }}>
         <label className="text-[0.8rem] text-txt-secondary font-medium tracking-[0.05em] flex items-center gap-1.5">
-          {'\u{1F310}'} Lang / ভাষা:
+          Lang / ভাষা:
         </label>
         <select
           value={currentLanguage}
@@ -60,11 +60,10 @@ export default function Sidebar() {
               key={item.id}
               href="/"
               onClick={handleHomeClick}
-              className="grid grid-cols-[1.5rem_1fr] gap-x-2 gap-y-0 items-center py-[0.65rem] px-3 rounded-md text-txt-secondary text-[0.85rem] font-medium transition-all duration-200 text-left w-full hover:bg-obsidian-panel hover:text-txt-primary hover:no-underline no-underline"
+              className="block py-[0.65rem] px-3 rounded-md text-txt-secondary text-[0.85rem] font-medium transition-all duration-200 text-left w-full hover:bg-obsidian-panel hover:text-txt-primary hover:no-underline no-underline"
             >
-              <span className="row-span-2 text-base flex items-center justify-center">{item.icon}</span>
               <span>{item.label}</span>
-              <span className="text-[0.68rem] text-txt-muted font-normal">{item.sub}</span>
+              <span className="block text-[0.68rem] text-txt-muted font-normal">{item.sub}</span>
             </a>
           );
         }
@@ -74,14 +73,13 @@ export default function Sidebar() {
             key={item.id}
             to={`/app/${item.id}`}
             className={({ isActive }) =>
-              `grid grid-cols-[1.5rem_1fr] gap-x-2 gap-y-0 items-center py-[0.65rem] px-3 rounded-md text-txt-secondary text-[0.85rem] font-medium transition-all duration-200 text-left w-full hover:bg-obsidian-panel hover:text-txt-primary hover:no-underline no-underline ${
+              `block py-[0.65rem] px-3 rounded-md text-txt-secondary text-[0.85rem] font-medium transition-all duration-200 text-left w-full hover:bg-obsidian-panel hover:text-txt-primary hover:no-underline no-underline ${
                 isActive ? '!text-emerald-mid !border !border-emerald-glow/30 bg-emerald-glow' : ''
               }`
             }
           >
-            <span className="row-span-2 text-base flex items-center justify-center">{item.icon}</span>
             <span>{item.label}</span>
-            <span className="text-[0.68rem] text-txt-muted font-normal">{item.sub}</span>
+            <span className="block text-[0.68rem] text-txt-muted font-normal">{item.sub}</span>
           </NavLink>
         );
       })}

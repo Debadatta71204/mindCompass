@@ -22,7 +22,7 @@ export default function ScreeningView() {
   function handleSubmit(e) {
     e.preventDefault();
     if (answers.some((a) => a === null)) {
-      setValidationError('\u26A0 Please answer all 5 questions before submitting.');
+      setValidationError('Please answer all 5 questions before submitting.');
       setTimeout(() => setValidationError(''), 4000);
       return;
     }
@@ -43,7 +43,7 @@ export default function ScreeningView() {
   return (
     <div>
       <div className="module-header">
-        <div className="module-eyebrow">{meta.icon} Module 1 &nbsp;·&nbsp; {meta.label} Track</div>
+        <div className="module-eyebrow">Module 1 &nbsp;·&nbsp; {meta.label} Track</div>
         <h2 className="module-title">Informational Screening Check-In</h2>
         <p className="module-subtitle">
           Answer honestly based on your own observations or those of a trusted caregiver.
@@ -92,9 +92,8 @@ export default function ScreeningView() {
         ))}
 
         <div className="clinical-warning-box">
-          <span className="text-[1.3rem] flex-shrink-0">{'\u26A0\uFE0F'}</span>
           <p className="text-[0.85rem] text-danger-red font-semibold leading-relaxed">
-            Before submitting: This informational screening tool does not verify or diagnose conditions.
+            Warning: This informational screening tool does not verify or diagnose conditions.
             These signs suggest professional evaluation may be beneficial if you have concerns.
             All responses are processed locally and are not stored or transmitted.
           </p>
@@ -142,7 +141,6 @@ export default function ScreeningView() {
             <p className="text-[0.9rem] text-txt-secondary leading-relaxed">{result.profile.description}</p>
 
             <div className="clinical-warning-box mt-5">
-              <span className="text-[1.3rem] flex-shrink-0">{'\u{1F6A8}'}</span>
               <p className="text-[0.85rem] text-danger-red font-semibold leading-relaxed">
                 <strong>Clinical Boundary Notice:</strong> This informational screening tool does not verify
                 or diagnose conditions. These signs suggest professional evaluation may be beneficial if
@@ -151,7 +149,7 @@ export default function ScreeningView() {
             </div>
 
             <button className="btn-secondary mt-5" onClick={handleReset}>
-              {'\u21BA'} Reset & Try Again
+              Reset & Try Again
             </button>
           </div>
         </div>

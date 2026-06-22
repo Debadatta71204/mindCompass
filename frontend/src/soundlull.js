@@ -127,9 +127,9 @@ async function fetchArchivePlaylist(query) {
 
 const SOUNDLULL_CATALOG = {
   moods: [
-    { id: "calm", label: "Deep Stillness", icon: "🌊", desc: "Settle an overactive mind with stabilizing low-frequency layers." },
-    { id: "focus", label: "Sustained Clarity", icon: "⚡", desc: "Binaural audio structures curated to reinforce attention thresholds." },
-    { id: "rest", label: "Sleep & Recovery", icon: "🌌", desc: "Soft ambient configurations designed to lower cognitive strain." }
+    { id: "calm", label: "Deep Stillness", icon: "", desc: "Settle an overactive mind with stabilizing low-frequency layers." },
+    { id: "focus", label: "Sustained Clarity", icon: "", desc: "Binaural audio structures curated to reinforce attention thresholds." },
+    { id: "rest", label: "Sleep & Recovery", icon: "", desc: "Soft ambient configurations designed to lower cognitive strain." }
   ],
   intensities: [
     { id: "low", label: "Gentle / Soft Background", level: "Ambient Base", desc: "Light, transparent background textures for passive grounding." },
@@ -170,8 +170,8 @@ export function renderSoundlullModule(containerId, activeDisorder) {
       const cards = SOUNDLULL_CATALOG.moods.map(m => `
         <div class="home-module-tile soundlull-selectable ${selectedMood === m.id ? 'active-gold' : ''}" data-id="${m.id}" style="padding: 28px; border-radius: 12px; transition: all 0.25s ease;">
           <div style="font-size: 2.5rem; margin-bottom: 16px;">${m.icon}</div>
-          <div style="font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; color: #fff; font-weight: 600;">${m.label}</div>
-          <div style="margin-top: 10px; font-size: 0.9rem; line-height: 1.5; color: #a0aec0;">${m.desc}</div>
+          <div style="font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; color: #3d3124; font-weight: 600;">${m.label}</div>
+          <div style="margin-top: 10px; font-size: 0.9rem; line-height: 1.5; color: #8b7a68;">${m.desc}</div>
         </div>
       `).join('');
       subContent = `
@@ -187,10 +187,9 @@ export function renderSoundlullModule(containerId, activeDisorder) {
     else if (currentSubStep === "intensity") {
       const cards = SOUNDLULL_CATALOG.intensities.map(i => `
         <div class="home-module-tile soundlull-selectable ${selectedIntensity === i.id ? 'active-gold' : ''}" data-id="${i.id}" style="padding: 28px; border-radius: 12px;">
-          <div style="font-size: 2.2rem; margin-bottom: 14px;">🎚️</div>
-          <div style="font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; color: #fff; font-weight: 600;">${i.label}</div>
-          <div style="margin-top: 10px; font-size: 0.9rem; color: #a0aec0; line-height: 1.5;">${i.desc}</div>
-          <span style="display: inline-block; margin-top: 16px; font-size: 0.75rem; background: rgba(0, 224, 122, 0.1); color: var(--emerald-bright); padding: 6px 12px; border-radius: 6px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">${i.level}</span>
+          <div style="font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; color: #3d3124; font-weight: 600;">${i.label}</div>
+          <div style="margin-top: 10px; font-size: 0.9rem; color: #8b7a68; line-height: 1.5;">${i.desc}</div>
+          <span style="display: inline-block; margin-top: 16px; font-size: 0.75rem; background: rgba(192, 128, 90, 0.1); color: var(--emerald-bright); padding: 6px 12px; border-radius: 6px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">${i.level}</span>
         </div>
       `).join('');
       subContent = `
@@ -207,9 +206,8 @@ export function renderSoundlullModule(containerId, activeDisorder) {
     else if (currentSubStep === "duration") {
       const cards = SOUNDLULL_CATALOG.durations.map(d => `
         <div class="home-module-tile soundlull-selectable ${selectedDuration === d.mins ? 'active-gold' : ''}" data-id="${d.mins}" style="padding: 32px 24px; border-radius: 12px; text-align: center;">
-          <div style="font-size: 2.5rem; margin-bottom: 14px;">⏱️</div>
-          <div style="font-family: 'Space Grotesk', sans-serif; font-size: 1.4rem; color: #fff; font-weight: 700;">${d.label}</div>
-          <div style="margin-top: 6px; font-size: 0.8rem; color: #718096;">Continuous Down-Regulation</div>
+          <div style="font-family: 'Space Grotesk', sans-serif; font-size: 1.4rem; color: #3d3124; font-weight: 700;">${d.label}</div>
+          <div style="margin-top: 6px; font-size: 0.8rem; color: #b5a494;">Continuous Down-Regulation</div>
         </div>
       `).join('');
       subContent = `
@@ -217,7 +215,7 @@ export function renderSoundlullModule(containerId, activeDisorder) {
         <div class="home-module-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px;">${cards}</div>
         <div style="margin-top: 40px; display: flex; justify-content: space-between;">
           <button class="btn-secondary" id="wizard-back-btn" style="padding: 14px 28px; font-family: 'Space Grotesk', sans-serif;">← Back</button>
-          <button class="btn-primary" id="wizard-start-btn" ${!selectedDuration ? 'disabled style="opacity:0.2; cursor:not-allowed;"' : ''} style="padding: 14px 36px; font-family: 'Space Grotesk', sans-serif; background: linear-gradient(135deg, var(--emerald-bright), #00b366); border: none; box-shadow: 0 4px 20px rgba(0, 224, 122, 0.25); font-weight:700;">Initialize Waveform 🧘✨</button>
+          <button class="btn-primary" id="wizard-start-btn" ${!selectedDuration ? 'disabled style="opacity:0.2; cursor:not-allowed;"' : ''} style="padding: 14px 36px; font-family: 'Space Grotesk', sans-serif; background: linear-gradient(135deg, var(--emerald-bright), #a86e4a); border: none; box-shadow: 0 4px 20px rgba(192, 128, 90, 0.25); font-weight:700;">           Initialize Waveform</button>
         </div>
       `;
     }
@@ -226,9 +224,8 @@ export function renderSoundlullModule(containerId, activeDisorder) {
     else if (currentSubStep === "loading") {
       subContent = `
         <div style="text-align:center; padding: 6rem 2rem; background: var(--bg-card); border-radius: 16px; border: 1px solid var(--border-accent);">
-          <div class="structural-orb-glow" style="font-size: 4rem; margin-bottom: 24px;">🌟</div>
-          <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 2rem; color: #fff; font-weight: 600; margin: 0;">Executing Playlist Selection Pass...</h3>
-          <p style="margin-top: 12px; color: #a0aec0; font-size: 1.05rem; line-height: 1.6;">Running greedy selection strategy across candidate metadata fields.</p>
+          <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 2rem; color: #3d3124; font-weight: 600; margin: 0;">Executing Playlist Selection Pass...</h3>
+          <p style="margin-top: 12px; color: #8b7a68; font-size: 1.05rem; line-height: 1.6;">Running greedy selection strategy across candidate metadata fields.</p>
         </div>
       `;
       setTimeout(async () => {
@@ -243,34 +240,34 @@ export function renderSoundlullModule(containerId, activeDisorder) {
     else if (currentSubStep === "player") {
       const track = playlist[currentTrackIdx] || { title: "Resolving stream node...", url: "" };
       subContent = `
-        <div class="question-card" style="max-width: 620px; margin: 20px auto; padding: 40px; border-radius: 16px; border: 1px solid var(--border-accent); background: linear-gradient(180deg, var(--bg-card) 0%, rgba(20,24,33,0.95) 100%);">
+        <div class="question-card" style="max-width: 620px; margin: 20px auto; padding: 40px; border-radius: 16px; border: 1px solid var(--border-accent); background: linear-gradient(180deg, var(--bg-card) 0%, rgba(221,212,196,0.95) 100%);">
           
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; border-bottom: 1px solid #2d3748; padding-bottom: 16px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; border-bottom: 1px solid rgb(61,49,36,0.12); padding-bottom: 16px;">
             <div>
               <div style="color: var(--emerald-bright); letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.75rem; font-weight: 800;">Algorithmic Workspace Active</div>
-              <p style="font-size: 0.85rem; color: #718096; margin: 4px 0 0 0;">Profile Context: <span style="color:#fff; font-weight:600;">${trackProfile.toUpperCase()}</span></p>
+              <p style="font-size: 0.85rem; color: #b5a494; margin: 4px 0 0 0;">Profile Context: <span style="color:#3d3124; font-weight:600;">${trackProfile.toUpperCase()}</span></p>
             </div>
-            <div style="background: rgba(0, 224, 122, 0.08); border: 1px solid rgba(0, 224, 122, 0.2); padding: 8px 16px; border-radius: 8px;">
+            <div style="background: rgba(192, 128, 90, 0.08); border: 1px solid rgba(192, 128, 90, 0.2); padding: 8px 16px; border-radius: 8px;">
               <div style="font-size: 0.7rem; color: var(--emerald-bright); font-weight: 700;">SESSION REMAINING</div>
-              <div id="session-countdown-clock" style="font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; font-weight: 700; color: #fff; text-align: right;">${formatTime(timeRemaining)}</div>
+              <div id="session-countdown-clock" style="font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; font-weight: 700; color: #3d3124; text-align: right;">${formatTime(timeRemaining)}</div>
             </div>
           </div>
 
-          <h4 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; margin: 0 0 8px 0; color: #fff; font-weight: 600;" id="player-track-title">${track.title}</h4>
-          <p style="font-size:0.85rem; color: #a0aec0; margin: 0 0 32px 0;">Sequence: <span style="color: var(--emerald-bright); font-weight:600;">${currentTrackIdx + 1} / ${playlist.length}</span> &middot; Sound Target: <span style="text-transform: uppercase; font-weight: 600; color: #fff;">${selectedMood} (${selectedIntensity})</span></p>
+          <h4 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; margin: 0 0 8px 0; color: #3d3124; font-weight: 600;" id="player-track-title">${track.title}</h4>
+          <p style="font-size:0.85rem; color: #8b7a68; margin: 0 0 32px 0;">Sequence: <span style="color: var(--emerald-bright); font-weight:600;">${currentTrackIdx + 1} / ${playlist.length}</span> &middot; Sound Target: <span style="text-transform: uppercase; font-weight: 600; color: #3d3124;">${selectedMood} (${selectedIntensity})</span></p>
           
-          <div style="width: 100%; background: #1a202c; height: 8px; border-radius: 100px; overflow: hidden; margin-bottom: 36px; position: relative;">
-            <div id="player-progress-bar" style="width: 0%; height: 100%; background: linear-gradient(90deg, var(--emerald-bright) 0%, #00ffcc 100%); border-radius: 100px;"></div>
+          <div style="width: 100%; background: #3d312433; height: 8px; border-radius: 100px; overflow: hidden; margin-bottom: 36px; position: relative;">
+            <div id="player-progress-bar" style="width: 0%; height: 100%; background: linear-gradient(90deg, var(--emerald-bright) 0%, #d4a860 100%); border-radius: 100px;"></div>
           </div>
 
           <div style="display:flex; justify-content:center; gap:24px; align-items:center;">
             <button class="btn-secondary" id="player-prev" style="padding: 14px 24px; border-radius: 10px;">&lsaquo; Prev</button>
-            <button class="btn-primary" id="player-toggle" style="border-radius: 50%; width: 68px; height: 68px; display: inline-flex; align-items: center; justify-content: center; padding: 0; font-size: 1.8rem; background: var(--emerald-bright); border: none; color: #0a0e17;">⏸</button>
+            <button class="btn-primary" id="player-toggle" style="border-radius: 50%; width: 68px; height: 68px; display: inline-flex; align-items: center; justify-content: center; padding: 0; font-size: 1.8rem; background: var(--emerald-bright); border: none; color: #faf7f2;">⏸</button>
             <button class="btn-secondary" id="player-next" style="padding: 14px 24px; border-radius: 10px;">Next &rsaquo;</button>
           </div>
 
-          <div style="margin-top: 40px; border-top: 1px solid #2d3748; padding-top: 24px; text-align: center;">
-            <button class="btn-secondary" id="player-exit" style="color:#fc8181; border-color: rgba(252, 129, 129, 0.25); font-size: 0.85rem; padding: 10px 20px;">Terminate Flow Early ✕</button>
+          <div style="margin-top: 40px; border-top: 1px solid rgb(61,49,36,0.12); padding-top: 24px; text-align: center;">
+            <button class="btn-secondary" id="player-exit" style="color:#c44545; border-color: rgba(196, 69, 69, 0.25); font-size: 0.85rem; padding: 10px 20px;">Terminate Flow Early ✕</button>
           </div>
         </div>
       `;
@@ -280,12 +277,12 @@ export function renderSoundlullModule(containerId, activeDisorder) {
     else if (currentSubStep === "feedback") {
       subContent = `
         <div class="question-card" style="max-width: 550px; margin: 30px auto; padding: 40px; border-radius: 16px; background: var(--bg-card); border: 1px solid var(--border-accent);">
-          <h3 class="edu-section-title" style="font-family: 'Space Grotesk', sans-serif; text-align:center; font-size: 1.7rem; color: #fff; font-weight: 700;">Post-Session Reflection</h3>
-          <p class="module-subtitle" style="text-align:center; margin-bottom:32px; color: #a0aec0;">How has your focus baseline adjusted?</p>
+          <h3 class="edu-section-title" style="font-family: 'Space Grotesk', sans-serif; text-align:center; font-size: 1.7rem; color: #3d3124; font-weight: 700;">Post-Session Reflection</h3>
+          <p class="module-subtitle" style="text-align:center; margin-bottom:32px; color: #8b7a68;">How has your focus baseline adjusted?</p>
           <div style="display:flex; flex-direction:column; gap:14px;">
-            <button class="radio-label feedback-opt" style="text-align: left; padding: 18px; border-radius: 10px; color: #fff; background: rgba(255,255,255,0.01);">✨ Deeply Restored & Clearheaded</button>
-            <button class="radio-label feedback-opt" style="text-align: left; padding: 18px; border-radius: 10px; color: #fff; background: rgba(255,255,255,0.01);">😌 Grounded & Intentionally Still</button>
-            <button class="radio-label feedback-opt" style="text-align: left; padding: 18px; border-radius: 10px; color: #fff; background: rgba(255,255,255,0.01);">😐 Neutral / No Clear Change</button>
+            <button class="radio-label feedback-opt" style="text-align: left; padding: 18px; border-radius: 10px; color: #3d3124; background: rgba(61,49,36,0.02);">Deeply Restored & Clearheaded</button>
+            <button class="radio-label feedback-opt" style="text-align: left; padding: 18px; border-radius: 10px; color: #3d3124; background: rgba(61,49,36,0.02);">😌 Grounded & Intentionally Still</button>
+            <button class="radio-label feedback-opt" style="text-align: left; padding: 18px; border-radius: 10px; color: #3d3124; background: rgba(61,49,36,0.02);">😐 Neutral / No Clear Change</button>
           </div>
         </div>
       `;
@@ -295,18 +292,17 @@ export function renderSoundlullModule(containerId, activeDisorder) {
     else if (currentSubStep === "complete") {
       subContent = `
         <div style="text-align:center; padding: 5rem 2rem; background: var(--bg-card); border-radius: 16px; border: 1px solid var(--border-accent); max-width: 600px; margin: 40px auto;">
-          <div style="font-size: 4rem; margin-bottom: 20px;">🏆</div>
-          <h2 class="home-welcome-heading" style="font-family: 'Space Grotesk', sans-serif; font-size: 2rem; color: #fff; font-weight: 700; margin: 0;">Acoustic Waveform Logged</h2>
-          <p class="module-subtitle" style="margin: 12px auto 36px auto; color: #a0aec0; font-size: 1rem;">Session parameters successfully integrated into your profile logs.</p>
+          <h2 class="home-welcome-heading" style="font-family: 'Space Grotesk', sans-serif; font-size: 2rem; color: #3d3124; font-weight: 700; margin: 0;">Acoustic Waveform Logged</h2>
+          <p class="module-subtitle" style="margin: 12px auto 36px auto; color: #8b7a68; font-size: 1rem;">Session parameters successfully integrated into your profile logs.</p>
           <button class="btn-primary" id="soundlull-restart" style="padding: 14px 36px;">Begin New Cycle ↺</button>
         </div>
       `;
     }
 
     container.innerHTML = `
-      <div class="module-header" style="margin-bottom: 36px; border-bottom: 1px solid #2d3748; padding-bottom: 24px;">
-        <div class="module-eyebrow" style="color: var(--emerald-bright); font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.78rem;">🌊 Module 04 &nbsp;·&nbsp; Advanced Bio-Acoustics</div>
-        <h2 class="module-title" style="font-family: 'Space Grotesk', sans-serif; font-size: 2.4rem; color: #fff; font-weight: 700; margin-top: 6px;">Soundlull Care Engine</h2>
+      <div class="module-header" style="margin-bottom: 36px; border-bottom: 1px solid rgb(61,49,36,0.12); padding-bottom: 24px;">
+        <div class="module-eyebrow" style="color: var(--emerald-bright); font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.78rem;">Module 04 &nbsp;·&nbsp; Advanced Bio-Acoustics</div>
+        <h2 class="module-title" style="font-family: 'Space Grotesk', sans-serif; font-size: 2.4rem; color: #3d3124; font-weight: 700; margin-top: 6px;">Soundlull Care Engine</h2>
       </div>
       <div>${subContent}</div>
     `;

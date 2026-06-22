@@ -1,17 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 import { useTrack } from '../contexts/TrackContext';
-import { theme } from '../theme';
 
 const TRACK_LABELS = {
   dementia: 'Dementia / Major NCD',
   adhd: 'ADHD',
   mci: 'MCI',
-};
-
-const TRACK_ICONS = {
-  dementia: '\u{1F9E0}',
-  adhd: '\u26A1',
-  mci: '\u{1F331}',
 };
 
 const MODULE_TILES = [
@@ -25,7 +18,6 @@ export default function HomeView() {
   const { currentDisorder, setCurrentDisorder } = useTrack();
   const navigate = useNavigate();
 
-  const icon = TRACK_ICONS[currentDisorder] || '\u2B21';
   const label = TRACK_LABELS[currentDisorder] || '';
   const desc =
     currentDisorder === 'dementia' ? 'Navigate the modules below. All content is specific to the Dementia / Major NCD informational track.' :
@@ -40,9 +32,6 @@ export default function HomeView() {
 
   return (
     <div className="max-w-[800px] mx-auto text-center">
-      <span className="text-[4rem] block mb-4" style={{ filter: `drop-shadow(0 0 20px ${theme.accentGlowLg})` }}>
-        {icon}
-      </span>
       <h2 className="font-display text-[2rem] font-bold text-txt-primary tracking-[-0.02em] mb-3">
         Welcome — {label} Track
       </h2>

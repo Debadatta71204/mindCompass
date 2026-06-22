@@ -15,9 +15,9 @@ export const MOOD_INTENSITY_MAP = {
 
 export const SOUNDLULL_CATALOG = {
   moods: [
-    { id: 'calm', label: 'Deep Stillness', icon: '\u{1F30A}', desc: 'Settle an overactive mind with stabilizing low-frequency layers.' },
-    { id: 'focus', label: 'Sustained Clarity', icon: '\u26A1', desc: 'Binaural audio structures curated to reinforce attention thresholds.' },
-    { id: 'rest', label: 'Sleep & Recovery', icon: '\u{1F30C}', desc: 'Soft ambient configurations designed to lower cognitive strain.' },
+    { id: 'calm', label: 'Deep Stillness', icon: '', desc: 'Settle an overactive mind with stabilizing low-frequency layers.' },
+    { id: 'focus', label: 'Sustained Clarity', icon: '', desc: 'Binaural audio structures curated to reinforce attention thresholds.' },
+    { id: 'rest', label: 'Sleep & Recovery', icon: '', desc: 'Soft ambient configurations designed to lower cognitive strain.' },
   ],
   intensities: [
     { id: 'low', label: 'Gentle / Soft Background', level: 'Ambient Base', desc: 'Light, transparent background textures for passive grounding.' },
