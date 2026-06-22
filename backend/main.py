@@ -4,10 +4,11 @@ Academic Cognitive Wellness Dashboard (Non-Clinical DSM-5 Informational Prototyp
 """
 
 import os
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, UploadFile, File, Form
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from google import genai
+from google.genai import types
 
 
 # 1. This line imports the dotenv library
@@ -198,6 +199,71 @@ async def companion(request: CompanionRequest):
             status_code=500,
             detail=f"AI generation error: {str(e)}"
         )
+# ─────────────────────────────────────────────
+# Companion Voice Endpoint
+# ─────────────────────────────────────────────
+
+
+@app.post("/api/companion/voice")
+async def companion_voice(
+    audio: UploadFile = File(...),
+    mode: str = Form(...),
+    lang: str = Form("en"),
+):
+    """
+    Accepts an audio recording, sends it inline to Gemini, and returns a
+    track-adapted, ethically guardrailed, language-accurate AI response.
+    """
+    clean_mode = mode.lower().strip()
+    clean_lang = lang.lower().strip() if lang else "en"
+
+    if clean_mode not in ("dementia", "adhd", "mci"):
+        raise HTTPException(
+            status_code=400,
+            detail="Invalid mode. Must be one of: 'dementia', 'adhd', 'mci'."
+        )
+
+    base_system_prompt = build_system_prompt(clean_mode)
+    target_language = LANGUAGE_NAMES.get(clean_lang, "English")
+    language_directive = (
+        f"\n\nCRITICAL LANGUAGE BOUNDARY: The user has selected their language as {target_language}. "
+        f"You MUST draft your entire conversational response or story response STRICTLY in {target_language}. "
+        f"Do not mix or default back to English unless the selected language is explicitly English."
+    )
+    compiled_system_prompt = base_system_prompt + language_directive
+
+    try:
+        audio_bytes = await audio.read()
+
+        audio_part = types.Part.from_bytes(
+            data=audio_bytes,
+            mime_type=audio.content_type or "audio/webm",
+        )
+
+        response = client.models.generate_content(
+            model="gemini-2.5-flash",
+            contents=[
+                audio_part,
+                "The user has sent an audio message. Listen to it carefully and respond conversationally.",
+            ],
+            config={
+                "system_instruction": compiled_system_prompt,
+                "max_output_tokens": 512,
+                "temperature": 0.75,
+            },
+        )
+
+        reply_text = response.text if response.text else "I'm here with you. Could you tell me a little more?"
+
+        return {"reply": reply_text, "mode": clean_mode, "lang": clean_lang}
+
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Voice AI generation error: {str(e)}"
+        )
+
+
 # ─────────────────────────────────────────────
 # Health Check
 # ─────────────────────────────────────────────

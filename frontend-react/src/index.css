@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-body bg-obsidian text-txt-primary antialiased min-h-screen;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-family: inherit;
+  }
+
+  a {
+    @apply text-emerald-bright no-underline;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+
+  input, textarea {
+    font-family: inherit;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(61, 49, 36, 0.08);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(61, 49, 36, 0.14);
+  }
+}
+
+@layer components {
+  .module-eyebrow {
+    @apply text-[0.68rem] tracking-[0.12em] uppercase text-emerald-mid font-semibold mb-1;
+  }
+
+  .module-title {
+    @apply font-display text-[1.6rem] font-bold text-txt-primary tracking-[-0.02em];
+  }
+
+  .module-subtitle {
+    @apply text-[0.85rem] text-txt-secondary mt-1 leading-relaxed;
+  }
+
+  .module-header {
+    @apply mb-7 pb-4 border-b border-black/5;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-[1.4rem] py-[0.65rem] rounded-md bg-emerald-bright text-white font-bold text-[0.88rem] tracking-[0.02em] transition-all duration-200;
+  }
+  .btn-primary:hover {
+    @apply bg-emerald-mid -translate-y-px;
+    box-shadow: 0 4px 20px rgba(192, 128, 90, 0.35);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-5 py-[0.6rem] rounded-md bg-obsidian-card text-txt-secondary font-medium text-[0.85rem] border border-black/10 transition-all duration-200;
+  }
+  .btn-secondary:hover {
+    @apply bg-obsidian-card-hover text-txt-primary;
+    border-color: rgba(192, 128, 90, 0.3);
+  }
+
+  .tag {
+    @apply text-[0.68rem] tracking-[0.04em] px-[0.6rem] py-[0.2rem] rounded-full font-medium border;
+    background: rgba(192, 128, 90, 0.08);
+    border-color: rgba(192, 128, 90, 0.2);
+    color: #c0805a;
+  }
+
+  .clinical-warning-box {
+    @apply mt-5 p-4 rounded-md flex gap-3 items-start;
+    background: rgba(196, 69, 69, 0.08);
+    border: 1.5px solid rgba(196, 69, 69, 0.35);
+  }
+
+  .soundlull-selectable {
+    @apply cursor-pointer transition-all duration-200;
+    background: rgba(61, 49, 36, 0.03);
+    border: 1px solid rgba(192, 128, 90, 0.3);
+  }
+  .soundlull-selectable:hover {
+    background: rgba(192, 128, 90, 0.04);
+    border-color: rgba(192, 128, 90, 0.3);
+    transform: translateY(-2px);
+  }
+  .soundlull-selectable.active-gold {
+    border-color: #d4a860 !important;
+    background: rgba(212, 168, 96, 0.06) !important;
+    box-shadow: 0 0 15px rgba(212, 168, 96, 0.15);
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  .structural-orb-glow {
+    animation: bounce 2s infinite ease-in-out;
+    display: inline-block;
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .page-enter {
+    animation: fadeInUp 0.35s cubic-bezier(0.4, 0, 0.2, 1) both;
+  }
+  .stagger-1 { animation-delay: 0.05s; }
+  .stagger-2 { animation-delay: 0.1s; }
+  .stagger-3 { animation-delay: 0.15s; }
+  .stagger-4 { animation-delay: 0.2s; }
+
+  .home-module-tile {
+    @apply bg-obsidian-card border border-black/5 rounded-lg p-5 cursor-pointer transition-all duration-200 text-left;
+  }
+  .home-module-tile:hover {
+    @apply border-emerald-bright bg-obsidian-card-hover;
+  }
+}
+
+@layer utilities {
+  .text-emerald {
+    color: #c0805a;
+  }
+  .text-muted {
+    color: #b5a494;
+  }
+  .text-danger {
+    color: #c44545;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
